@@ -13,6 +13,8 @@
 -[x] Use Next/Image component
 -[x] Error management (w/Sentry)
 -[x] Routing/image page (parallet route)
+-[x] Update upload button
+-[ ] ShadUify
 -[] Delete button (w/Server Actions)
 -[] Analytics (Posting)
 -[] Ratelimiting (upstash) 
