@@ -3,6 +3,7 @@ import Link from "next/link";
 import { db } from "~/server/db";
 import { getMyImages } from "~/server/queries";
 import Image from "next/image";
+import { object } from "zod";
 
 export const dynamic = "force-dynamic";
 
@@ -14,9 +15,9 @@ async function Images(){
       images.map((image)=>(
         <div key={image.id} className="flex w-48 flex-col">
             <Link href={`/photos/${image.id}`}>
-            <Image 
+            <img 
             src={image.url} 
-            style={{objectFit: "contain" }} 
+            className="object-contain" 
             width={500} 
             height={500}  
             alt={image.name}/>
