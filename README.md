@@ -14,7 +14,7 @@
 -[x] Error management (w/Sentry)
 -[x] Routing/image page (parallet route)
 -[x] Update upload button
--[ ] ShadUify
+-[x] ShadUify
 -[x] Delete button (w/Server Actions)
 -[x] Analytics (Posting)
 -[x] Ratelimiting (upstash) 
