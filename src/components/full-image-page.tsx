@@ -10,23 +10,25 @@ export default async function FullPageImageView(props:{id:number}){
   const uploaderInfo = await clerkClient.users.getUser(image.userId);
 
   return (
-    <div className="flex w-full bg-green-500 h-full min-w-0">
-      <div className="flex-shrink flex justify-center items-center">
-        <img src={image.url} className="object-contain flex-shrink"/>
+    <div className="flex w-full bg-black/50 h-full min-w-0 justify-around">
+      <div className="flex-shrink flex justify-center w-6/12 items-center">
+        <img src={image.url} className="object-cover h-auto w-auto"/>
       </div>
       
     
-      <div className="w-48 flex gap-2 flex-col flex-shrink-0 border-l px-2">
-        <div className="border-b text-center text-lg font-bold p-2">{image.name}</div>
-        <div className="flex flex-col"><span>Uploaded By :</span> <span>{uploaderInfo.fullName}</span></div>
-        <div className="flex flex-col"><span>Crated On :</span> <span>{new Date(image.createdAt).toLocaleDateString ()}</span></div>
-        <div className="flex flex-col">
-          <form action={async () =>{
-            "use server";
-            await deleteImage(props.id);
-          }}>
-            <Button type="submit" variant={"destructive"}>DELETE</Button>  
-          </form>
+      <div className="w-12/12 items-center p-6 items-center flex">
+        <div className="">
+          <div className="text-2xl mt-4 text-wrap"><span className="text-wrap">{image.name}</span></div>
+          <div className="flex flex-col mt-4"><span>Uploaded By : {uploaderInfo.fullName}</span></div>
+          <div className="flex flex-col mt-4"><span>Created On : {new Date(image.createdAt).toLocaleDateString ()}</span></div>
+          <div className="flex flex-col mt-4">
+            <form action={async () =>{
+              "use server";
+              await deleteImage(props.id);
+            }}>
+              <Button type="submit" variant={"destructive"}>DELETE</Button>  
+            </form>
+          </div>
         </div>
       </div> 
     </div> 

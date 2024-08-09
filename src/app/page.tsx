@@ -27,16 +27,16 @@ async function Images(){
     <div className="flex flex-wrap gap-4 p-4">
     {
       images.map((image)=>(
-        <div key={image.id} className="flex w-48 flex-col">
+        <div key={image.id} className="flex w-48 flex-col object-fill">
             <Link href={`/photos/${image.id}`}>
             <img 
             src={image.url} 
-            className="object-contain" 
+            className="object-cover h-40 w-auto hover:object-scale-down" 
             width={500} 
             height={500}  
             alt={image.name}/>
             </Link>
-            <div>{image.name}</div>
+            {/* <div>{image.name}</div> */}
         </div>
       ))
     }
