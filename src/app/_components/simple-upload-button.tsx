@@ -4,6 +4,7 @@ import { useUploadThing } from "../utils/uploadthing";
 import { toast } from "sonner"
 import { LoadingSpinnerSVG } from "../page";
 import { useEffect } from "react";
+import posthog from "posthog-js";
 
 type input = Parameters<typeof useUploadThing>;
 
@@ -96,12 +97,17 @@ export function SimpleUploadButton(){
                 <span className="ms-2">
                     Uploading....
                 </span>
-    </div>,
+                </div>,
                 {
                 duration:5000,
                 id:"upload-begin",
                 }
             );
+        },
+        onUploadError(error){
+            posthog.capture("upload_error",{error});
+            toast.dismiss("upload-begin");
+            toast.error("Upload Failed !");
         },
         onClientUploadComplete(){
             toast.dismiss("upload-begin");
