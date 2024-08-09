@@ -15,6 +15,6 @@
 -[x] Routing/image page (parallet route)
 -[x] Update upload button
 -[ ] ShadUify
--[] Delete button (w/Server Actions)
--[] Analytics (Posting)
--[] Ratelimiting (upstash) 
+-[x] Delete button (w/Server Actions)
+-[x] Analytics (Posting)
+-[x] Ratelimiting (upstash) 
